@@ -41,7 +41,6 @@ export function useMessages(connectionId: string | undefined) {
         ...doc.data(),
       })) as MessageData[];
 
-      // Ordenar por data mais recente primeiro no frontend
       data.sort(
         (a, b) =>
           new Date(b.scheduledFor).getTime() -
@@ -63,7 +62,7 @@ export function useMessages(connectionId: string | undefined) {
     await addDoc(collection(db, "messages"), {
       text,
       contactIds,
-      status: "agendado", // Toda mensagem nasce agendada. A Cloud Function vai mudar para "enviado".
+      status: "agendado",
       scheduledFor,
       connectionId,
       userId: user.uid,

@@ -16,14 +16,12 @@ export const processarDisparos = onSchedule("every 1 minutes", async () => {
   }
 
   const batch = db.batch();
-  const agoraMs = Date.now(); // Pega o milissegundo exato de agora no mundo todo
+  const agoraMs = Date.now();
   let quantidadeDisparada = 0;
 
   snapshot.docs.forEach((doc) => {
     const data = doc.data();
 
-    // CORREÇÃO DO FUSO HORÁRIO:
-    // Forçamos o servidor a entender que a data do frontend é do horário de Brasília (UTC-3)
     const dataStringComFuso = `${data.scheduledFor}-03:00`;
     const horarioAgendadoMs = new Date(dataStringComFuso).getTime();
 

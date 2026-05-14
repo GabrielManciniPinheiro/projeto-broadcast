@@ -27,7 +27,6 @@ export function useContacts(connectionId: string | undefined) {
   useEffect(() => {
     if (!user || !connectionId) return;
 
-    // Buscamos contatos que pertencem ao usuário logado E à conexão específica (Estrutura Plana / Sem subcoleção)
     const q = query(
       collection(db, "contacts"),
       where("userId", "==", user.uid),

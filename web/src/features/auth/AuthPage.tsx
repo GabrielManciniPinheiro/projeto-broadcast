@@ -25,7 +25,6 @@ export function AuthPage() {
   };
 
   return (
-    // Removido o bg-gray-50. O CssBaseline do main.tsx já cuida do fundo escuro da tela inteira!
     <div className="flex min-h-screen items-center justify-center p-4">
       <Paper className="w-full max-w-md p-8 shadow-xl">
         <Box className="mb-8 text-center">
@@ -64,7 +63,7 @@ export function AuthPage() {
             variant="contained"
             color="primary"
             size="large"
-            className="mt-2 py-3 font-bold" // py-3 para deixar o botão mais gordinho e elegante
+            className="mt-2 py-3 font-bold"
           >
             {isLogin ? "Entrar" : "Cadastrar"}
           </Button>

@@ -25,7 +25,6 @@ export function useConnections() {
   useEffect(() => {
     if (!user) return;
 
-    // A mágica do SaaS: filtramos para buscar APENAS onde userId é igual ao uid do usuário logado!
     const q = query(
       collection(db, "connections"),
       where("userId", "==", user.uid),
